@@ -99,13 +99,13 @@ class FamilyTreeAPIController extends Controller
             $familyTree = FamilyTree::findOrFail($id);
             $familyTree->delete();
 
-            return response()->json(['message' => 'Person deleted successfully'], 20);
+            return response()->json(['message' => 'Person deleted successfully'], 200);
 
         } catch (ModelNotFoundException $e) {
             // if id  or person not found return 
             return response()->json(['errors' => ['message' => ['Person not found']]], 404);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Failed to deleted FamilyTree', 'message' => $e->getMessage()], 500);
+            return response()->json(['error' => 'Failed to deleted FamilyTree', 'message :' => $e->getMessage()], 500);
         }
     }
 
@@ -132,7 +132,7 @@ class FamilyTreeAPIController extends Controller
         // Get grandchildren
         $grandchildren = FamilyTree::whereIn('parent_id', function ($query) use ($grandParentId) {
             $query->select('id')
-                ->from('family_tree')
+                ->from('family_trees')
                 ->where('parent_id', $grandParentId);
         })
             ->when($gender !== null, function ($query) use ($gender) {

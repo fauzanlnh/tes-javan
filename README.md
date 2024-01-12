@@ -3,8 +3,8 @@
 1. **Clone Repository**
 
     ```bash
-    git clone https://github.com/fauzanlnh/Web-SI-Cafe.git
-    cd Web-SI-Cafe / folder-name
+    git clone https://github.com/fauzanlnh/tes-javan.git
+    cd tes-javan / folder-name
     ```
 
 2. **Install Dependencies**
@@ -58,4 +58,6 @@ These instructions provide a step-by-step guide to set up the System Information
     ```
 3. **Use the Request template for test the API**
 
-   ![Example View](./public/assets/img/readme/test-api.JPG)
+    ![Example View](./public/assets/img/readme/test-api.JPG)
+
+    #### for getCousinByCousinName and getGrandChildByGrandParentId you can add params for gender
